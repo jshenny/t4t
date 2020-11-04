@@ -51,27 +51,3 @@ recognition.onerror = function(event) {
 document.querySelector('#btnGiveCommand').addEventListener('click', function() {
   recognition.start();
 });
-/*
-var bg = document.querySelector('html');
-var hints = document.querySelector('.hints');
-
-var wordHTML= '';
-words.forEach(function(v, i, a){
-  console.log(v, i);
-  wordHTML += '<span style="background-color:' + v + ';"> ' + v + ' </span>';
-});
-hints.innerHTML = 'Tap/click then say pop to change the background color of the app. Try ' + wordHTML + '.';
-
-document.body.onclick = function() {
-  recognition.start();
-  console.log('Ready to receive a color command.');
-}
-
-recognition.onresult = function(event) {
-    var word = event.results[0][0].transcript;
-    diagnostic.textContent = 'Result received: ' + word + '.';
-    //bg.style.backgroundColor = word;
-    console.log('Confidence: ' + event.results[0][0].confidence);
-  }
-
-  */

@@ -33,6 +33,7 @@ recognition.onresult = function(event) {
   if (input.toLowerCase() == 'pop') {
     document.querySelector('#pop').remove();
     document.querySelector('#btnGiveCommand').remove();
+    document.getElementById("bubble").src="images/pop.png";
   }
 }
 

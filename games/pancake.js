@@ -3,8 +3,6 @@ var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
 // define grammar we want to recognize
-//var words = ['pop', "click", "boo"];
-//var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + words.join(' | ') + ' ;'
 var grammar = '#JSGF V1.0;'
 var message = document.querySelector('#message');
 var diagnostic = document.querySelector('.output');
@@ -30,10 +28,10 @@ recognition.onresult = function(event) {
   var input = event.results[0][0].transcript;
   diagnostic.textContent = 'Result received: ' + input + '.';
 
-  if (input.toLowerCase() == 'pop') {
-    document.querySelector('#pop').remove();
+  if (input.toLowerCase() == 'flip' || input.toLowerCase() == 'flipped') {
+    //document.querySelector('#flip').remove();
     document.querySelector('#btnGiveCommand').remove();
-    document.getElementById("bubble").src="images/pop.png";
+    document.getElementById("pancake").src="../images/pancake-flip.gif";
   }
 }
 

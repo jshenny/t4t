@@ -23,37 +23,37 @@ recognition.lang = 'en-US';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-recognition.onresult = function(event) {
+recognition.onresult = function (event) {
   //ar last = event.results.length - 1;
   //var command = event.results[last][0].transcript;
   var last = event.results.length - 1;
   var input = event.results[last][0].transcript;
   diagnostic.textContent = 'Result received: ' + input + '.';
 
-  if (input.toLowerCase() == 'turn on') {
+  if (input.toLowerCase() == 'turn on' || input.toLowerCase() == 'on') {
     document.querySelector('#title').innerHTML = "Turn Off the Lights!";
     document.querySelector('#btnGiveCommand').innerHTML = "Say Turn Off!";
-    document.getElementById("lights").src="../images/on.jpg";
+    document.getElementById("lights").src = "../images/on.jpg";
   }
-  if ( input.toLowerCase() == 'turn off') {
+  if (input.toLowerCase() == 'turn off' || input.toLowerCase() == 'off') {
     document.querySelector('#title').innerHTML = "Turn On the Lights!";
     document.querySelector('#btnGiveCommand').innerHTML = "Say Turn On!";
-    document.getElementById("lights").src="../images/off.jpg";
+    document.getElementById("lights").src = "../images/off.jpg";
   }
 }
 
-recognition.onspeechend = function() {
+recognition.onspeechend = function () {
   recognition.stop();
 }
 
-recognition.onnomatch = function(event) {
+recognition.onnomatch = function (event) {
   diagnostic.textContent = 'I didnt recognise that word.';
 }
 
-recognition.onerror = function(event) {
+recognition.onerror = function (event) {
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
 
-document.querySelector('#btnGiveCommand').addEventListener('click', function() {
+document.querySelector('#btnGiveCommand').addEventListener('click', function () {
   recognition.start();
 });

@@ -2,6 +2,9 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
+// sound file
+var popSound = new Audio("../sounds/pop.wav");
+
 // define grammar we want to recognize
 var grammar = '#JSGF V1.0;'
 var message = document.querySelector('#message');
@@ -23,6 +26,7 @@ recognition.interimResults = true;
 recognition.maxAlternatives = 1;
 
 recognition.addEventListener('soundstart', function() { 
+  popSound.play();
   document.querySelector('#pop').remove();
   document.querySelector('#btnGiveCommand').remove();
   document.getElementById("bubble").src="../images/pop.png";

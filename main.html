@@ -5,24 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
 
-    <title>Main</title>
+    <title>Voice Command Games</title>
 
     <link rel="stylesheet" href="main.css">
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
 
   <body>
-    <h1 id='pop'>Voice Command Game</h1>
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Games</button>
+    <h1 id='main'>Voice Command Game</h1>
+    <div class="container">
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Verbal Games</button>
         <div id="myDropdown" class="dropdown-content">
-          <a href="games/pop.html">Bubble</a>
+          <a href="games/pop.html">Bubblegum</a>
           <a href="games/pancake.html">Pancake</a>
           <a href="games/lights.html">Turn on the Lights</a>
         </div>
       </div>
+
+      <div class="dropdown">
+        <button onclick="myFunction2()" class="dropbtn">Nonverbal Games</button>
+       <div id="myDropdown2" class="dropdown-content">
+         <a href="gamesv2/pop.html?=nonverbal">Bubblegum</a>
+         <a href="gamesv2/pancake.html?=nonverbal">Pancake</a>
+         <a href="gamesv2/lights.html?=nonverbal">Turn on the Lights</a>
+      </div>
+     </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

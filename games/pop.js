@@ -2,6 +2,9 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
+// sound file
+var popSound = new Audio("../sounds/pop.wav");
+
 // define grammar we want to recognize
 var grammar = '#JSGF V1.0;'
 var message = document.querySelector('#message');
@@ -29,6 +32,7 @@ recognition.onresult = function(event) {
   diagnostic.textContent = 'Result received: ' + input + '.';
 
   if (input.toLowerCase() == 'pop') {
+    popSound.play();
     document.querySelector('#pop').remove();
     document.querySelector('#btnGiveCommand').remove();
     document.getElementById("bubble").src="../images/pop.png";
@@ -50,3 +54,5 @@ recognition.onerror = function(event) {
 document.querySelector('#btnGiveCommand').addEventListener('click', function() {
   recognition.start();
 });
+
+

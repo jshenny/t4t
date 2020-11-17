@@ -2,15 +2,10 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-// sound file
-var lightsOnSound = new Audio("../sounds/lightsOn.mp3");
-var lightsOffSound = new Audio("../sounds/lightsOff.mp3");
-
 // define grammar we want to recognize
 var grammar = '#JSGF V1.0;'
 var message = document.querySelector('#message');
 var diagnostic = document.querySelector('.output');
-var lights = false;
 
 // create a speech recognition instance
 var recognition = new SpeechRecognition();
@@ -28,20 +23,10 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 recognition.addEventListener('soundstart', function() { 
-  if (lights == false) {
-    lights = true;
-    lightsOnSound.play();
-    document.querySelector('#title').innerHTML = "Turn Off the Lights!";
-    document.querySelector('#btnGiveCommand').innerHTML = "Go!";
-    document.getElementById("lights").src="../images/on.jpg";
-  } else {
-    lights = false;
-    lightsOffSound.play();
-    document.querySelector('#title').innerHTML = "Turn On the Lights!";
-    document.querySelector('#btnGiveCommand').innerHTML = "Go!";
-    document.getElementById("lights").src="../images/off.jpg";
-  }
+  document.querySelector('#btnGiveCommand').remove();
+  document.getElementById("pancake").src="../images/pancake-flip.gif";
 });
+
 
 recognition.onspeechend = function() {
   recognition.stop();

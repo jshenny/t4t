@@ -2,6 +2,10 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
+// sound file
+var lightsOnSound = new Audio("../sounds/lightsOn.mp3");
+var lightsOffSound = new Audio("../sounds/lightsOff.mp3");
+
 // define grammar we want to recognize
 var grammar = '#JSGF V1.0;'
 var message = document.querySelector('#message');
@@ -31,11 +35,13 @@ recognition.onresult = function (event) {
   diagnostic.textContent = 'Result received: ' + input + '.';
 
   if (input.toLowerCase() == 'turn on' || input.toLowerCase() == 'on') {
+    lightsOnSound.play();
     document.querySelector('#title').innerHTML = "Turn Off the Lights!";
     document.querySelector('#btnGiveCommand').innerHTML = "Say Turn Off!";
     document.getElementById("lights").src = "../images/on.jpg";
   }
   if (input.toLowerCase() == 'turn off' || input.toLowerCase() == 'off') {
+    lightsOffSound.play();
     document.querySelector('#title').innerHTML = "Turn On the Lights!";
     document.querySelector('#btnGiveCommand').innerHTML = "Say Turn On!";
     document.getElementById("lights").src = "../images/off.jpg";

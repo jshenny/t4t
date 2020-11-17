@@ -23,6 +23,7 @@ body, html {
 
   .container {
     text-align: center;
+    justify-content: center;
   }
 
   ul {
@@ -48,10 +49,6 @@ body, html {
 .dropdown {
   position: relative;
   display: inline-block;
-  width: 100px; 
-  position: fixed;
-  left: 50%;
-  margin-left: -50px;
 }
 
 /* Dropdown Content (Hidden by Default) */
